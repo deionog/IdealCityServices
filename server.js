@@ -7,6 +7,7 @@ const cors = require('cors');
 const methods = require('methods');
 const config = require('./db');
 const User = require('./src/models/User');
+const UserPreference = require('./src/models/UserPreference');
 const PORT = 4000;
 
 require('./src/config/passport');
