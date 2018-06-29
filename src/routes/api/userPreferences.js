@@ -14,6 +14,7 @@ router.post('/', function(req, res, next){
 
     userPreference.name = req.body.userPreference.name;
     userPreference.isDefault = req.body.userPreference.isDefault;
+    userPreference.category = req.body.userPreference.category;
 
     userPreference.save().then(function(){
       return res.json({preference: userPreference.toJSON()});

@@ -1,3 +1,3 @@
 module.exports = {
-    DB: 'mongodb://localhost:27017/idealcityapi'
+    DB: 'mongodb+srv://int-user:testPassword@idealcitycluster-ndu5s.mongodb.net/idealcityapi'
 }
