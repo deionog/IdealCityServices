@@ -2,6 +2,7 @@ var router = require('express').Router();
 
 router.use('/', require('./users'));
 router.use('/userPreferences', require('./userPreferences'));
+router.use('/compareCities', require('./compare-cities'));
 
 router.use(function(err, req, res, next){
   if(err.name === 'ValidationError'){

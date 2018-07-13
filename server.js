@@ -17,8 +17,8 @@ app.use(bodyParser.json());
 app.use(require('method-override')());
 
 mongoose.connect(config.DB).then(
-    () => {console.log('Database is connected') },
-    err => { console.log('Can not connect to the database' +err)
+    () => {console.log('Database is connected'); },
+    err => { console.log('Can not connect to the database' +err);
 });
 
 app.use(require('./src/routes'));
