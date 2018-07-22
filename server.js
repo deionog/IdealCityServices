@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(require('method-override')());
 
-mongoose.connect(config.DB).then(
+mongoose.connect(config.DBLocal).then(
     () => {console.log('Database is connected'); },
     err => { console.log('Can not connect to the database' +err);
 });
