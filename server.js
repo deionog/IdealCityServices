@@ -8,6 +8,7 @@ const methods = require('methods');
 const config = require('./db');
 const User = require('./src/models/User');
 const UserPreference = require('./src/models/UserPreference');
+const CityFavorites = require('./src/models/CityFavorites');
 const PORT = 4000;
 
 require('./src/config/passport');
