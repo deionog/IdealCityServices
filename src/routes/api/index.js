@@ -4,6 +4,7 @@ router.use('/', require('./users'));
 router.use('/userPreferences', require('./userPreferences'));
 router.use('/compareCities', require('./compare-cities'));
 router.use('/mycities', require('./cityFavorites'));
+router.use('/myPreferences', require('./myPreferences'));
 
 router.use(function(err, req, res, next){
   if(err.name === 'ValidationError'){
