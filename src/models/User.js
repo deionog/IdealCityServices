@@ -8,7 +8,8 @@ const secret = require('../config').secret;
 var UserSchema = new mongoose.Schema({
     username: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/^[a-zA-Z0-9]+$/, 'is invalid'], index: true},
     email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true},
-    bio: String,
+    firstName: {type: String, required: [true, "can't be blank"]},
+    lastName: {type: String, required: [true, "can't be blank"]},
     image: String,
     hash: String,
     salt: String,
@@ -35,6 +36,7 @@ UserSchema.methods.generateJWT = function() {
   return jwt.sign({
     id: this._id,
     username: this.username,
+    firstName: this.firstName,
     exp: parseInt(exp.getTime() / 1000),
   }, secret);
 };
@@ -44,8 +46,9 @@ UserSchema.methods.toAuthJSON = function(){
     username: this.username,
     email: this.email,
     token: this.generateJWT(),
-    bio: this.bio,
-    image: this.image
+    firstName: this.firstName,
+    image: this.image,
+    modAll: this.modifyAll
   };
 };
 

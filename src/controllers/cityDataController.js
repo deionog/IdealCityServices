@@ -8,13 +8,26 @@ module.exports.getAllData = function(cities){
 
   return waApi.getFull(queryString).then((queryresult) => {
       const pods = queryresult.pods;
+      const filteredPods = pods.filter(pod => {
+        if(pod.id != "Input" && pod.id != "Path:CityData" && pod.id != "Distances:CityData" && pod.id != "CurrentTime:CityData"){
+          return true;
+        }
+      });
+      // const output = filteredPods.map((pod) => {
+      //   let podObj = {};
+      //   podObj.title = pod.title;
+      //   podObj.subpods = pod.subpods.map(subpod => {
+      //     return subpod.plaintext.split('|');
+      //   });
+      //   return podObj;
+      // });
       // const output = pods.map((pod) => {
       //   const subpodContent = pod.subpods.map(subpod =>
       //     `  <img src="${subpod.img.src}" alt="${subpod.img.alt}">`
       //   ).join('\n');
       //   return `<h2>${pod.title}</h2>\n${subpodContent}`;
       // }).join('\n');
-      return pods;
+      return filteredPods;
     }).catch(console.error);
 };
 
